@@ -41,3 +41,36 @@ The sorting algorithm is left up to the implementing runtime.
 
 All browsers use an implementation that has a `O(n logn)` asymptotic run time /
 complexity.
+
+## Sorting anagrams
+
+The following implementation has a complexity of `O(n logn)` because it uses
+`[].slice`:
+
+```typescript
+const areAnagrams1: AreAnagrams = (s1, s2) => {
+  const [sorted1, sorted2] = [s1, s2]
+    .map(s => s.toLocaleLowerCase())
+    .map(s => s.split('').sort().join(''))
+
+  return sorted1 === sorted2;
+}
+```
+
+By using `Map` to count the occurrences of characters, we can improve on our
+implementation with a complexity of `O(n)`, where `n` is the number of
+characters in the strings:
+
+```typescript
+const areAnagrams2: AreAnagrams = (s1, s2) => {
+  const charCount = new Map<string, number>();
+
+  s1.split('')
+    .map(c => charCount.set(c, (charCount.get(c) || 0) + 1));
+  s2.split('')
+    .filter(c => charCount.has(c))
+    .map(c => charCount.set(c, charCount.get(c) - 1));
+
+  return Array.from(charCount.values()).every(v => v === 0);
+}
+```
