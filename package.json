@@ -1,0 +1,25 @@
+{
+  "name": "building-algorithms-using-typescript",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc",
+    "watch:dev": "npm run build -- -w"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/larrybotha/building-algorithms-using-typescript.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/larrybotha/building-algorithms-using-typescript/issues"
+  },
+  "homepage": "https://github.com/larrybotha/building-algorithms-using-typescript#readme",
+  "devDependencies": {
+    "typescript": "^3.4.5"
+  }
+}
