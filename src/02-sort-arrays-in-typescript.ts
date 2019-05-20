@@ -39,7 +39,7 @@ const movies = [
 ];
 
 // sort ascending
-console.log(movies.slice().sort((b, a) => b.year - a.year > 0 ? 1 : -1))
+console.log(movies.slice().sort((a, b) => a.year - b.year > 0 ? 1 : -1))
 
 // sort descending
-console.log(movies.slice().sort((b, a) => a.year - b.year > 0 ? 1 : -1))
+console.log(movies.slice().sort((a, b) => b.year - a.year > 0 ? 1 : -1))
