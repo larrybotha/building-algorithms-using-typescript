@@ -103,7 +103,7 @@ const hasAnyPalindrome = (str: string): boolean => {
     return acc;
   }, new Set<string>())
 
-  return acc.size < 2;
+  return acc.size <= 2;
 }
 ```
 
@@ -111,3 +111,6 @@ const hasAnyPalindrome = (str: string): boolean => {
 string is evaluated, it's either in the `Set` or not. If it's already in the
 `Set`, then we know we have a match, and remove it from the `Set`. Otherwise add
 it to the set.
+
+This implementation has an order of `O(n)` as we only iterate over the length of
+the string once.

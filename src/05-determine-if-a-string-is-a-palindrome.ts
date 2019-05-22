@@ -52,17 +52,22 @@ console.log(hasAnyPermutationNaive('toto'));
  * Every palindrome has the following property:
  * - every character, except 1, has a matching character
  *
+ * This implementation has a complexity of O(n)
+ *
  * @param IsPalindrome
  * @returns {undefined}
  */
 const hasAnyPermutation = (str: string): boolean => {
-  const unmatched = str.replace(/ /g, '').split('').reduce((acc, c) => {
-    acc.has(c) ? acc.delete(c) : acc.add(c);
+  const unmatched = str
+    .replace(/ /g, '')
+    .split('')
+    .reduce((acc, c) => {
+      acc.has(c) ? acc.delete(c) : acc.add(c);
 
-    return acc;
-  }, new Set<string>());
+      return acc;
+    }, new Set<string>());
 
-  return unmatched.size < 2;
+  return unmatched.size <= 1;
 }
 
 console.log(hasAnyPermutation('civil'));
