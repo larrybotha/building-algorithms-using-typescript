@@ -74,3 +74,40 @@ const areAnagrams2: AreAnagrams = (s1, s2) => {
   return Array.from(charCount.values()).every(v => v === 0);
 }
 ```
+
+## Palindromes
+
+A naive solution to determining if any string contains at least one palindrome
+would be to create a permutation of all possible character combinations.
+
+Because this uses permutations, it would have a complexity of `n!`.
+
+An alternative solution is to evaluate the properties of a palindrome:
+
+- for a palindrome with an even number of characters, every character has a
+    matching character
+- for a palindrome that has an odd number of characters, 1 character will not
+    have a match
+
+Thus, we can reduce the problem to finding only the characters that do not
+match, and determning if the string has 0 or 1 unmatched pairs to determine if
+the string contains a palindrome:
+
+
+```typescript
+const hasAnyPalindrome = (str: string): boolean => {
+  const unmatchedChars = str.split('').reduce((acc, c) => {
+    // ugly, but Set.delete returns the deleted value, not an updated Set
+    acc.has(c) ? acc.delete(c) : acc.add(c);
+
+    return acc;
+  }, new Set<string>())
+
+  return acc.size < 2;
+}
+```
+
+`Set`s are convenient as they contain only unique values. If a character in the
+string is evaluated, it's either in the `Set` or not. If it's already in the
+`Set`, then we know we have a match, and remove it from the `Set`. Otherwise add
+it to the set.
