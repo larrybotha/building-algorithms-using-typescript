@@ -5,6 +5,8 @@ egghead.io.
 
 ## ReadonlyArray
 
+[01-understand-fizzbuzz-coding-problems-and-solutions.ts](./src/01-understand-fizzbuzz-coding-problems-and-solutions.ts)
+
 ### `sort` mutates arrays
 
 `[].sort()` mutates arrays in plays.
@@ -37,12 +39,17 @@ Always provide a compare function when sorting anything other than a `string[]`.
 
 ### `[].sort` Big-O
 
+[02-sort-arrays-in-typescript.ts](./src/02-sort-arrays-in-typescript.ts)
+[03-case-insensitive-sorting-for-string-arrays.ts](./src/03-case-insensitive-sorting-for-string-arrays.ts)
+
 The sorting algorithm is left up to the implementing runtime.
 
 All browsers use an implementation that has a `O(n logn)` asymptotic run time /
 complexity.
 
 ## Sorting anagrams
+
+[04-determine-if-two-strings-are-an-anagram.ts](./src/04-determine-if-two-strings-are-an-anagram.ts)
 
 The following implementation has a complexity of `O(n logn)` because it uses
 `[].slice`:
@@ -76,6 +83,8 @@ const areAnagrams2: AreAnagrams = (s1, s2) => {
 ```
 
 ## Palindromes
+
+[05-determine-if-a-string-is-a-palindrome.ts](./src/05-determine-if-a-string-is-a-palindrome.ts)
 
 A naive solution to determining if any string contains at least one palindrome
 would be to create a permutation of all possible character combinations.
@@ -114,3 +123,12 @@ it to the set.
 
 This implementation has an order of `O(n)` as we only iterate over the length of
 the string once.
+
+## Bubble sort
+
+[06-bubble-sorting.ts](./src/06-bubble-sorting.ts)
+
+Bubble sort has complexity `O(n^2)` since we loop over a nested array.
+
+Bubble sort can be optimised by breaking out of the loop once the list is
+sorted.
