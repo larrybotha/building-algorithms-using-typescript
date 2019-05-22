@@ -128,7 +128,13 @@ the string once.
 
 [06-bubble-sorting.ts](./src/06-bubble-sorting.ts)
 
+Buuble sort is best used when sorting small lists of values.
+
 Bubble sort has complexity `O(n^2)` since we loop over a nested array.
 
 Bubble sort can be optimised by breaking out of the loop once the list is
 sorted.
+
+## Quicksort
+
+[07-quicksort-algorithm.ts](./src/07-quicksort-algorithm.ts)
