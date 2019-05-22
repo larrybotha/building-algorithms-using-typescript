@@ -27,4 +27,4 @@ const areAnagrams2: AreAnagrams = (s1, s2) => {
 
 console.log(areAnagrams2(str1, str2));
 
-export {areAnagrams2}
+export {areAnagrams1, areAnagrams2}
