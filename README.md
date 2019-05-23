@@ -199,3 +199,33 @@ Steps:
       before the pivotRank
   - a partition containing values from after the pivotRank until the previous
       before value
+
+## Insertion sort
+
+[08-insertion-sort-algorithm.ts](./src/08-insertion-sort-algorithm.ts)
+
+```bash
+insertSort([4,3,2,1])
+
+# steps in evaluation
+{ section: [ 4 ], current: 3 }
+{ section: [ 3, 4 ], current: 2 }
+{ section: [ 2, 3, 4 ], current: 1 }
+
+# result
+[ 1, 2, 3, 4 ]
+```
+
+1. assume the first element of an array is sorted
+2. loop over the array, evaluating all elements preceding the value at the
+   current index
+
+    - if the value in the previous position is greater than the current value,
+        then place that value one position forward in the array
+    - this will overwrite the current value, but we get to that in the next step
+3. assign the current value at the position one after the tracked position
+
+    - if there was no insertion, this will be at the current index
+    - if there was insertion, this will be at the last position that was
+        assigned, i.e. addressing the same value being written twice into the
+        array in step 2
