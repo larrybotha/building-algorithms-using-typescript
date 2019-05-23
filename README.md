@@ -145,3 +145,53 @@ sorted.
 ## Quicksort
 
 [07-quicksort-algorithm.ts](./src/07-quicksort-algorithm.ts)
+
+Quicksort works by recursively sorting partitions of an array until all the
+partitions are themselves sorted.
+
+This is achieved by taking a pivot point, and splitting the array at that pivot
+point. The array is sorted in place; i.e. mutating the array ends up being a
+pragmatic compromise.
+
+Steps:
+
+1. provide the full array for partition, with start at 0, and evaluate until
+   the end of the array
+2. during the partition, generate a pivot index between the start index and
+   length of the full array
+3. swap the value at the pivot index with the value at the start index
+
+    This simplifies the algorithm, as we don't need to keep moving the position
+    of the pivot value when values are sorted
+4. get the pivot value from the start of the partition
+5. set the pivotRank to the start index
+6. loop over the partition, starting after the pivot value (now at index 0 of
+   the partition), doing the following for each value:
+    - if the current value is smaller than the pivot value:
+        -  increment the pivotRank
+        -  assign the current index of the loop to the value at the incremented
+            pivotRank index of the array
+        - assign the value at the pivotRank index to the value at the curret
+            index
+        - this ensures we move values smaller than the pivot to the beginning of
+            the partition, but after the pivot value
+        - we know now that the order of the partition is incorrect, because the
+            pivot should be placed after the update, but we can do this once
+            this loop is complete
+7. once the loop is complete, if our pivotRank is different from the start
+   value, we know that at least one value was lower than our pivot, so we do the
+   following:
+
+   - assign array position at the pivotRank index to the value at the start
+       position - which at the beginning of this partition we made the pivot
+       value
+   - assign the array position at the start index the value at the pivotRank
+   - we have now guaranteed that all values in the partition less than the pivot
+       value precede the pivot value
+8. pass the array into 2 more partition sub-routines, using the pivotRank as
+   reference for the start and before indexes
+
+  - a partition containing values from the previous start index up until just
+      before the pivotRank
+  - a partition containing values from after the pivotRank until the previous
+      before value
