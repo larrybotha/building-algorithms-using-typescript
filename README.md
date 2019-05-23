@@ -128,6 +128,13 @@ the string once.
 
 [06-bubble-sorting.ts](./src/06-bubble-sorting.ts)
 
+- iterate over a list, doing the following for each value:
+  - for the current value, iterate over all other items in the list, doing the
+      following:
+    - if the current item is greater than the value it is being compared
+        to, place the compared value before the current value in the array
+    - if the current item is less than the compared value, do nothing
+
 Buuble sort is best used when sorting small lists of values.
 
 Bubble sort has complexity `O(n^2)` since we loop over a nested array.
