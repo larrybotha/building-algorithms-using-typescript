@@ -66,4 +66,4 @@ const bubbleSort = (xs: number[]): number[] => {
 
 console.log(bubbleSort(arrToSort));
 
-export { bubbleSort, bubbleSortNaive };
+export {bubbleSort, bubbleSortNaive};

@@ -1,4 +1,4 @@
-const xs = ["Alpha", "beta", "Gamma", "delta"];
+const xs = ['Alpha', 'beta', 'Gamma', 'delta'];
 
 /*
  * Capital leters come before lower-case letters. If our algorithm doesn't

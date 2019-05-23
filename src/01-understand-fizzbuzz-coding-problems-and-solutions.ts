@@ -7,8 +7,8 @@
  */
 
 for (let i = 0; i <= 100; i++) {
-  const fizz = i % 3 === 0 ? "fizz" : "";
-  const buzz = i % 5 === 0 ? "buzz" : "";
+  const fizz = i % 3 === 0 ? 'fizz' : '';
+  const buzz = i % 5 === 0 ? 'buzz' : '';
 
-  console.log([fizz, buzz].filter(Boolean).join("") || i);
+  console.log([fizz, buzz].filter(Boolean).join('') || i);
 }

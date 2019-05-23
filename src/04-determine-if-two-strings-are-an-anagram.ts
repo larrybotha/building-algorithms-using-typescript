@@ -1,5 +1,5 @@
-const str1 = "madam";
-const str2 = "adamm";
+const str1 = 'madam';
+const str2 = 'adamm';
 
 type AreAnagrams = (s1: string, s2: string) => boolean;
 
@@ -9,9 +9,9 @@ const areAnagrams1: AreAnagrams = (s1, s2) => {
     .map(s => s.toLocaleLowerCase())
     .map(s =>
       s
-        .split("")
+        .split('')
         .sort()
-        .join("")
+        .join('')
     );
 
   return sorted1 === sorted2;
@@ -21,8 +21,8 @@ const areAnagrams1: AreAnagrams = (s1, s2) => {
 const areAnagrams2: AreAnagrams = (s1, s2) => {
   const charCount = new Map<string, number>();
 
-  s1.split("").map(c => charCount.set(c, (charCount.get(c) || 0) + 1));
-  s2.split("")
+  s1.split('').map(c => charCount.set(c, (charCount.get(c) || 0) + 1));
+  s2.split('')
     .filter(c => charCount.has(c))
     .map(c => charCount.set(c, charCount.get(c) - 1));
 
@@ -31,4 +31,4 @@ const areAnagrams2: AreAnagrams = (s1, s2) => {
 
 console.log(areAnagrams2(str1, str2));
 
-export { areAnagrams1, areAnagrams2 };
+export {areAnagrams1, areAnagrams2};

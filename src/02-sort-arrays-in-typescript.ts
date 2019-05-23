@@ -3,7 +3,7 @@
  *
  * To fix this, one can indicate that an array should not be nutated
  */
-const arr: ReadonlyArray<string> = ["foo", "bar"];
+const arr: ReadonlyArray<string> = ['foo', 'bar'];
 
 // invalid
 // const copy = arr.sort()
@@ -21,21 +21,21 @@ console.log(numArr.slice().sort());
 
 const movies = [
   {
-    name: "Shawshank Redemption",
-    year: 1994
+    name: 'Shawshank Redemption',
+    year: 1994,
   },
   {
-    name: "The Godfather",
-    year: 1972
+    name: 'The Godfather',
+    year: 1972,
   },
   {
-    name: "The Godfather: Part II",
-    year: 1974
+    name: 'The Godfather: Part II',
+    year: 1974,
   },
   {
-    name: "The Dark Knight",
-    year: 2008
-  }
+    name: 'The Dark Knight',
+    year: 2008,
+  },
 ];
 
 // sort ascending
