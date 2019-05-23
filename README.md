@@ -146,6 +146,10 @@ sorted.
 
 [07-quicksort-algorithm.ts](./src/07-quicksort-algorithm.ts)
 
+Quicksort has complexity `O(n logn)`. It is called _quick_ because of its low
+memory overhead as a result of updating the array in place. It's also known as
+Pivot Sort.
+
 Quicksort works by recursively sorting partitions of an array until all the
 partitions are themselves sorted.
 
