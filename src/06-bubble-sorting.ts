@@ -1,4 +1,4 @@
-const arrToSort = [1,2,4,3];
+const arrToSort = [1, 2, 4, 3];
 
 /**
  * bubbleSortNaive
@@ -19,15 +19,15 @@ const bubbleSortNaive = (xs: number[]): number[] => {
     for (let j = 0; j < arrLength - 1; j++) {
       if (sorted[j] > sorted[j + 1]) {
         // switch the positions of the values in the array
-        [sorted[j], sorted[j + 1]] = [sorted[j + 1], sorted[j]]
+        [sorted[j], sorted[j + 1]] = [sorted[j + 1], sorted[j]];
       }
 
-      console.log(`iteration: ${i} ${j}`)
+      console.log(`iteration: ${i} ${j}`);
     }
   }
 
   return sorted;
-}
+};
 
 console.log(bubbleSortNaive(arrToSort));
 
@@ -45,13 +45,13 @@ console.log(bubbleSortNaive(arrToSort));
 const bubbleSort = (xs: number[]): number[] => {
   let sorted = xs.slice();
 
-  while(true) {
+  while (true) {
     let swapped = false;
 
     for (let i = 0; i < xs.length - 1; i++) {
       if (sorted[i] > sorted[i + 1]) {
         // switch the positions of the values in the array
-        [sorted[i], sorted[i + 1]] = [sorted[i + 1], sorted[i]]
+        [sorted[i], sorted[i + 1]] = [sorted[i + 1], sorted[i]];
         swapped = true;
       }
 
@@ -62,8 +62,8 @@ const bubbleSort = (xs: number[]): number[] => {
   }
 
   return sorted;
-}
+};
 
 console.log(bubbleSort(arrToSort));
 
-export {bubbleSort, bubbleSortNaive};
+export { bubbleSort, bubbleSortNaive };
