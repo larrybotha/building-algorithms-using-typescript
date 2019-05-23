@@ -229,3 +229,14 @@ insertSort([4,3,2,1])
     - if there was insertion, this will be at the last position that was
         assigned, i.e. addressing the same value being written twice into the
         array in step 2
+
+In the worst case, the loop will run as many times as the elements in the
+left-hand sorted side of the array.
+
+This can be represented by the sum of:
+
+```
+[1,2,3, ..., n - 1] = n * (n - 1) / 2 = O(n^2)
+```
+
+which is the complexity we'd expect from a nested loop.
