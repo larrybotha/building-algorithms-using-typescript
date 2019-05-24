@@ -1,7 +1,7 @@
 /**
- * binarySearchNaive
+ * linearSearch
  *
- * A naive implementation of a binary search with complexity O(n)
+ * A linear search for an item in an array
  *
  * This is the same as using Array.prototype.findIndex, as it implements a
  * simple loop to find the index of the specified number
@@ -11,7 +11,7 @@
  * @returns {number} the index of the number in the given array, or -1 if not
  * found
  */
-const binarySearchNaive = (xs: number[], num: number): number => {
+const linearSearch = (xs: number[], num: number): number => {
   for (let i = 0; i < xs.length; i++) {
     if (xs[i] === num) {
       return i;
@@ -56,4 +56,4 @@ const binarySearch = (
 
 console.log(binarySearch(Array.from({length: 10}).map((_, i) => i + 1), 7));
 
-export {binarySearch, binarySearchNaive};
+export {binarySearch, linearSearch};
