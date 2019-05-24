@@ -319,4 +319,14 @@ Arrays sorted with merge sort are partitioned until two arrays of length one are
 compared, sorted, and returned. The resulting array is a merge of all the arrays
 built from sorting the single-item arrays.
 
+## Binary search
 
+[10-binary-search-algorithm.ts](./src/10-binary-search-algorithm.ts)
+
+*Summary:* Find a value in a sorted array by splitting the array in 2,
+evaluating the element at the middle, and then performing a new binary search on
+the applicable partition of the array if the middle element doesn't match the
+element being searched.
+
+Binary search reduces the time complexity of a linear search from `O(n)` to
+`O(logn)`.
