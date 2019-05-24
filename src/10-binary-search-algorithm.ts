@@ -12,13 +12,16 @@
  * found
  */
 const linearSearch = (xs: number[], num: number): number => {
+  let index = -1;
+
   for (let i = 0; i < xs.length; i++) {
     if (xs[i] === num) {
-      return i;
+      index = i;
+      break;
     }
   }
 
-  return -1;
+  return index;
 };
 
 /**
