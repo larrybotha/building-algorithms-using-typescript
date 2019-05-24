@@ -255,13 +255,68 @@ which is the time complexity we'd expect from a nested loop.
 
 [09-merge-sort-algorithm.ts](./src/09-merge-sort-algorithm.ts)
 
+Merge sort has a time complexity of `O(nlogn)` because:
+
+```
+T(n) = 2 * T(n / 2) + O(n) ≈ O(nlogn)
+[1]        [2]        [3]
+
+[1] - time complexity given an array of length n
+[2] - splitting the array in 2, and recursively calling mergeSort on each array
+[3] - using merge to run through each value once to sort partitions
+```
+
+e.g.:
+
+```
+run mergeSort on:
+[ 4, 3, 2, 1, 0 ]
+
+merge:
+{ left: [ 4, 3 ], right: [ 2, 1, 0 ] }
+
+=================
+run mergeSort on:
+[ 4, 3 ]
+
+merge:
+{ left: [ 4 ], right: [ 3 ] }
+
+merge result:
+[ 3, 4 ]
+
+=================
+run mergeSort on:
+[ 2, 1, 0 ]
+
+merge:
+{ left: [ 2 ], right: [ 1, 0 ] }
+
+=================
+run mergeSort on:
+[ 1, 0 ]
+
+merge:
+{ left: [ 1 ], right: [ 0 ] }
+
+merge result:
+[ 0, 1 ]
+
+merge result:
+[ 0, 1, 2 ]
+
+merge result:
+[ 0, 1, 2, 3, 4 ]
+[ 0, 1, 2, 3, 4 ]
+```
+
 *Summary:* Sort an array by splitting the array in 2, and recursively applying
 the same algorithm to each partition to sort each partition, finally merging each
 partition using a merge sub-routine which compares and sorts values from each
 partitions.
 
-Arrays sorted with merge sort are essentially partitioned until two arrays of
-length one are compared, sorted, and returned. The resulting array is a merge of
-all the arrays built from sorting the single-item arrays.
+Arrays sorted with merge sort are partitioned until two arrays of length one are
+compared, sorted, and returned. The resulting array is a merge of all the arrays
+built from sorting the single-item arrays.
 
-Merge sort has a time complexity of `O(nlogn)`.
+
