@@ -12,8 +12,6 @@ const merge = (leftXs: number[], rightXs: number[]): number[] => {
   let leftIndex = 0;
   let rightIndex = 0;
 
-  console.log(leftXs, rightXs);
-
   /*
    * loop while the sum of the left and right indexes is less than the sum of
    * the lengths of each array
@@ -65,6 +63,9 @@ const merge = (leftXs: number[], rightXs: number[]): number[] => {
     }
   }
 
+  console.log('\nmerge result: ');
+  console.log(xs);
+
   return xs;
 };
 
@@ -79,6 +80,10 @@ const merge = (leftXs: number[], rightXs: number[]): number[] => {
 const mergeSort = (xs: number[]): number[] => {
   if (xs.length <= 1) return xs;
 
+  console.log('\n=================');
+  console.log('run mergeSort on:');
+  console.log(xs);
+
   /*
    * Merge sort divides an array in two before sorting
    */
@@ -86,12 +91,14 @@ const mergeSort = (xs: number[]): number[] => {
   const leftXs = xs.slice(0, middleIndex);
   const rightXs = xs.slice(middleIndex);
 
+  console.log('\nmerge:');
+  console.log({left: leftXs, right: rightXs});
   return merge(mergeSort(leftXs), mergeSort(rightXs));
 };
 
 console.log(
   mergeSort(
-    Array.from({length: 20})
+    Array.from({length: 5})
       .map((_, i) => i)
       .slice()
       .reverse()
