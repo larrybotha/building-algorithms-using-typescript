@@ -44,14 +44,14 @@ Always provide a compare function when sorting anything other than a `string[]`.
 
 The sorting algorithm is left up to the implementing runtime.
 
-All browsers use an implementation that has a `O(n logn)` asymptotic run time /
+All browsers use an implementation that has a `O(nlogn)` asymptotic run time /
 complexity.
 
 ## Sorting anagrams
 
 [04-determine-if-two-strings-are-an-anagram.ts](./src/04-determine-if-two-strings-are-an-anagram.ts)
 
-The following implementation has a complexity of `O(n logn)` because it uses
+The following implementation has a time complexity of `O(nlogn)` because it uses
 `[].slice`:
 
 ```typescript
@@ -65,7 +65,7 @@ const areAnagrams1: AreAnagrams = (s1, s2) => {
 ```
 
 By using `Map` to count the occurrences of characters, we can improve on our
-implementation with a complexity of `O(n)`, where `n` is the number of
+implementation with a time complexity of `O(n)`, where `n` is the number of
 characters in the strings:
 
 ```typescript
@@ -89,7 +89,7 @@ const areAnagrams2: AreAnagrams = (s1, s2) => {
 A naive solution to determining if any string contains at least one palindrome
 would be to create a permutation of all possible character combinations.
 
-Because this uses permutations, it would have a complexity of `n!`.
+Because this uses permutations, it would have a time complexity of `n!`.
 
 An alternative solution is to evaluate the properties of a palindrome:
 
@@ -128,6 +128,9 @@ the string once.
 
 [06-bubble-sorting.ts](./src/06-bubble-sorting.ts)
 
+*Summary:* Sort values in a list by 'bubbling' through the list repeatedly,
+swapping values until the entires list is sorted.
+
 - iterate over a list, doing the following for each value:
   - for the current value, iterate over all other items in the list, doing the
       following:
@@ -137,7 +140,7 @@ the string once.
 
 Buuble sort is best used when sorting small lists of values.
 
-Bubble sort has complexity `O(n^2)` since we loop over a nested array.
+Bubble sort has time complexity `O(n^2)` since we loop over a nested array.
 
 Bubble sort can be optimised by breaking out of the loop once the list is
 sorted.
@@ -146,7 +149,10 @@ sorted.
 
 [07-quicksort-algorithm.ts](./src/07-quicksort-algorithm.ts)
 
-Quicksort has complexity `O(n logn)`. It is called _quick_ because of its low
+*Summary:* Sort a list by using a pivot value to recursively partition and sort
+each partition.
+
+Quicksort has time complexity `O(nlogn)`. It is called _quick_ because of its low
 memory overhead as a result of updating the array in place. It's also known as
 Pivot Sort.
 
@@ -204,6 +210,10 @@ Steps:
 
 [08-insertion-sort-algorithm.ts](./src/08-insertion-sort-algorithm.ts)
 
+*Summary:* Sort a list by building a sorted list from an unsorted list by
+inserting values in order after evaluating the new value against all already
+sorted values.
+
 ```bash
 insertSort([4,3,2,1])
 
@@ -239,4 +249,19 @@ This can be represented by the sum of:
 [1,2,3, ..., n - 1] = n * (n - 1) / 2 = O(n^2)
 ```
 
-which is the complexity we'd expect from a nested loop.
+which is the time complexity we'd expect from a nested loop.
+
+## Merge sort
+
+[09-merge-sort-algorithm.ts](./src/09-merge-sort-algorithm.ts)
+
+*Summary:* Sort an array by splitting the array in 2, and recursively applying
+the same algorithm to each partition to sort each partition, finally merging each
+partition using a merge sub-routine which compares and sorts values from each
+partitions.
+
+Arrays sorted with merge sort are essentially partitioned until two arrays of
+length one are compared, sorted, and returned. The resulting array is a merge of
+all the arrays built from sorting the single-item arrays.
+
+Merge sort has a time complexity of `O(nlogn)`.
