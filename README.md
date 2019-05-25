@@ -19,6 +19,7 @@ egghead.io.
 - [Merge sort](#merge-sort)
 - [Binary search](#binary-search)
 - [Find repeated item in array](#find-repeated-item-in-array)
+- [Create random integers in a given range](#create-random-integers-in-a-given-range)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
@@ -365,3 +366,34 @@ against each other item. This would result in a time complexity of O(n^2).
 We can improve on this by using a set to add items if they are not in the set,
 or return an item if it is already in the set. Using this strategy we have a
 time complexity of O(n).
+
+## Create random integers in a given range
+
+[12-create-random-items-in-given-range.ts](./src/12-create-random-items-in-given-range.ts)
+
+1. generate a random integer between 0 (inclusive) and 1 (exclusive)
+
+    ```javascript
+    Math.random();
+    ```
+
+2. Generate a random number between 0 (inclusive) and n
+
+    ```javascript
+    Math.random() * 100;
+    ```
+
+3. Generate an integer between 0 and n
+
+    ```javascript
+    Math.floor(Math.random() * n);
+    ```
+
+4. Generate an integer between n and m
+
+    ```javascript
+    m + Math.floor(Math.random() * (n - m));
+
+    // e.g. between 10 and 90
+    10 + Math.floor(Math.random() * (90 - 10));
+    ```
