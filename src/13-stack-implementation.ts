@@ -9,7 +9,8 @@ class Stack<T> {
   /**
    * push
    *
-   * Adds item in O(1)
+   * Adds item in O(1), since the index of no other items in the array are
+   * affected
    *
    * @param {T} item
    * @returns {void}
@@ -21,7 +22,8 @@ class Stack<T> {
   /**
    * pop
    *
-   * Removes last inserted item in O(1)
+   * Removes last inserted item in O(1), since the index of no other elements in
+   * the array are affected
    *
    * If no item, returns undefined
    *
