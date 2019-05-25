@@ -20,6 +20,7 @@ egghead.io.
 - [Binary search](#binary-search)
 - [Find repeated item in array](#find-repeated-item-in-array)
 - [Create random integers in a given range](#create-random-integers-in-a-given-range)
+- [Stack](#stack)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
@@ -397,3 +398,14 @@ time complexity of O(n).
     // e.g. between 10 and 90
     10 + Math.floor(Math.random() * (90 - 10));
     ```
+
+## Stack
+
+[13-stack-implementation.ts](./src/13-stack-implementation.ts)
+
+*Summary:* A last-in-first-out (LIFO) structure which allows for adding, removing,
+and getting the size of the structure with time complexity `O(1)`
+
+This structure can be modeled using arrays, since the array operations we
+require (`push` and `pop`) don't require any evaluation of element order and
+have a time complexity of `O(1)`.
