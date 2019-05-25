@@ -330,3 +330,17 @@ element being searched.
 
 Binary search reduces the time complexity of a linear search from `O(n)` to
 `O(logn)`.
+
+## Find repeated item in array
+
+[11-find-repeated-item-in-array.ts](./src/11-find-repeated-item-in-array.ts)
+
+*Summary:* Use a `Set` to iterate through an iterable object a maximum number of
+times of the length of the iterable to return the first repeated item.
+
+A naive implementation would nest a loop within a loop to evaluate each item
+against each other item. This would result in a time complexity of O(n^2).
+
+We can improve on this by using a set to add items if they are not in the set,
+or return an item if it is already in the set. Using this strategy we have a
+time complexity of O(n).
