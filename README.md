@@ -3,6 +3,27 @@
 Notes and annotations for the [Building algorithms using Typescript]() course on
 egghead.io.
 
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+**Table of Contents**
+
+- [ReadonlyArray](#readonlyarray)
+  - [`sort` mutates arrays](#sort-mutates-arrays)
+  - [default `sort` algorithm](#default-sort-algorithm)
+  - [`[].sort` Big-O](#sort-big-o)
+- [Sorting anagrams](#sorting-anagrams)
+- [Palindromes](#palindromes)
+- [Bubble sort](#bubble-sort)
+- [Quicksort](#quicksort)
+- [Insertion sort](#insertion-sort)
+- [Merge sort](#merge-sort)
+- [Binary search](#binary-search)
+- [Find repeated item in array](#find-repeated-item-in-array)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
+
+
 ## ReadonlyArray
 
 [01-understand-fizzbuzz-coding-problems-and-solutions.ts](./src/01-understand-fizzbuzz-coding-problems-and-solutions.ts)
