@@ -64,8 +64,8 @@ Always provide a compare function when sorting anything other than a `string[]`.
 
 ### `[].sort` Big-O
 
-[02-sort-arrays-in-typescript.ts](./src/02-sort-arrays-in-typescript.ts)
-[03-case-insensitive-sorting-for-string-arrays.ts](./src/03-case-insensitive-sorting-for-string-arrays.ts)
+- [02-sort-arrays-in-typescript.ts](./src/02-sort-arrays-in-typescript.ts)
+- [03-case-insensitive-sorting-for-string-arrays.ts](./src/03-case-insensitive-sorting-for-string-arrays.ts)
 
 The sorting algorithm is left up to the implementing runtime.
 
