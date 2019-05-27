@@ -14,7 +14,7 @@ const copy = arr.slice().sort();
 /*
  * [].sort treats arrays as string[] by default
  *
- * Always provide a compare function when sorting anything other than string
+ * Always provide a compare function when sorting anything other than string[]
  */
 const numArr: number[] = [1, 22, 3];
 console.log(numArr.slice().sort());
