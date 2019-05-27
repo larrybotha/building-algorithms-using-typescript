@@ -34,7 +34,7 @@ egghead.io.
 
 ### `sort` mutates arrays
 
-`[].sort()` mutates arrays in plays.
+`[].sort()` mutates arrays in place.
 
 Using Typescript's `ReadonlyArray` one can ensure that arrays are not mutated by
 methods that may not be known to mutate:
