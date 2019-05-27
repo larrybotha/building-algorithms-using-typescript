@@ -77,7 +77,7 @@ complexity.
 [04-determine-if-two-strings-are-an-anagram.ts](./src/04-determine-if-two-strings-are-an-anagram.ts)
 
 The following implementation has a time complexity of `O(nlogn)` because it uses
-`[].slice`:
+`[].sort`:
 
 ```typescript
 const areAnagrams1: AreAnagrams = (s1, s2) => {
