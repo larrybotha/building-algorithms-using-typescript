@@ -21,6 +21,7 @@ egghead.io.
 - [Find repeated item in array](#find-repeated-item-in-array)
 - [Create random integers in a given range](#create-random-integers-in-a-given-range)
 - [Stack](#stack)
+- [Queue](#queue)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
@@ -409,3 +410,24 @@ and getting the size of the structure with time complexity `O(1)`
 This structure can be modeled using arrays, since the array operations we
 require (`push` and `pop`) don't require any evaluation of element order and
 have a time complexity of `O(1)`.
+
+## Queue
+
+[14-queue-implementation.ts ](./src/14-queue-implementation.ts )
+
+*Summary:* A Queue is a structure that allows for first-in-first-out operations
+on keys, and has a time complexity of `O(1)` for key operators. A Queue
+implements a `enqueue` method for adding items to the end of the queue, a
+`dequeue` method for removing items from the beginning of the queue, and a
+`size` method for getting the number of items in the queue.
+
+In a naive implementation, one may be tempted to model queue on Javascript's
+`Array`. This will result in an invalid implementation, as in order to remove
+the first item in the array `[].shift` is required. Using `[].shift` will
+require all elements in the array to have their indices updated, resulting in a
+time complexity of `O(n`)`.
+
+Instead, a map can be used with an index for the key, and items can be added and
+removed to the queue using these indices as reference, updating and referencing
+an internal state of the position in the queue where items are to be added, and
+where items should be removed from.
