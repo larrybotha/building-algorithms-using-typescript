@@ -111,4 +111,4 @@ class Queue<T> {
   }
 }
 
-export {QueueInvalid};
+export {Queue, QueueInvalid};
