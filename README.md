@@ -22,6 +22,7 @@ egghead.io.
 - [Create random integers in a given range](#create-random-integers-in-a-given-range)
 - [Stack](#stack)
 - [Queue](#queue)
+- [Linked List](#linked-list)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
@@ -425,9 +426,24 @@ In a naive implementation, one may be tempted to model queue on Javascript's
 `Array`. This will result in an invalid implementation, as in order to remove
 the first item in the array `[].shift` is required. Using `[].shift` will
 require all elements in the array to have their indices updated, resulting in a
-time complexity of `O(n`)`.
+time complexity of `O(n)`.
 
 Instead, a map can be used with an index for the key, and items can be added and
 removed to the queue using these indices as reference, updating and referencing
 an internal state of the position in the queue where items are to be added, and
 where items should be removed from.
+
+## Linked List
+
+[15-singly-linked-list-implementation.ts](./src/15-singly-linked-list-implementation.ts)
+
+*Summary:* A linked list is a structure where each node points to the following
+node, and items can be added, dequeued in a FIFO strategy, and read from the linked
+list with time complexity `O(1)`.
+
+Every implementation of a linked list begins with a definition of a node. The
+first node in a singly linked list is the head, while the most recently added
+node is the tail.
+
+Any operation that only requires a constant number of next value manipulations
+can always be implemented with time complexity O(1)
