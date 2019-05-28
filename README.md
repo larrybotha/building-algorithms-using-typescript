@@ -447,3 +447,19 @@ node is the tail.
 
 Any operation that only requires a constant number of next value manipulations
 can always be implemented with time complexity O(1)
+
+@@ Doubly-linked list
+
+[16-doubly-linked-list-implementation.ts](./src/16-doubly-linked-list-implementation.ts)
+
+*Summary*: A doubly-linked list is a linked list with the additional property
+that each node has a reference to both the subsequent and previous item. This
+allows for items to be popped off of the end of the list, in addition to being
+dequeued from the front of the list.
+
+To create a doubly-linked list with node operations of time complexity `O(1)`
+one can create a `pop` method on the list that replaces the tail with the
+previous value.
+
+Because the next and previous values are constant, we can implement linked lists
+and doubly linked lists with time complexity of `O(1)`.
