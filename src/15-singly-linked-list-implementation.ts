@@ -1,6 +1,8 @@
 /**
  * LinkedListNode
  *
+ * node {value, next} -> node {value, next} -> ... -> undefined
+ *
  * A node in a LinkedList, which holds a value, and optionally points to the
  * next node
  */
