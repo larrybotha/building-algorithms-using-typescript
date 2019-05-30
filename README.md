@@ -526,7 +526,7 @@ c a d e b
 ```
 
 - loop over every item in the array
-- randomly select an index for an item between the current index and the end of
+- randomly select an index for an item from the current index until the the end of
     the array
 - swap the value at the current loop index position with the value at the
     randomly selected index position
