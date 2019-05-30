@@ -24,6 +24,7 @@ egghead.io.
 - [Queue](#queue)
 - [Linked List](#linked-list)
 - [Parse string with an integer](#parse-string-with-an-integer)
+- [Shuffle an array](#shuffle-an-array)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
@@ -483,3 +484,46 @@ it returns `NaN`.
 - By obtaining the code point for 0, we can determine whether any other
     character is a numeric digit or not be evaluating the difference of the two
     code points.
+
+## Shuffle an array
+
+[18-shuffle-an-array.ts](./src/18-shuffle-an-array.ts)
+
+*Summary:* Shuffling an array requires implementing a function that has the
+property that for every item in the original array (of length n), each item has
+a 1/n probability of being at any position in the shuffled array
+
+```
+a b c d e
+
+c
+[1]
+c a
+[2]
+c a d
+ [3]
+c a d e
+  [4]
+c a d e b
+   [5]
+
+[1] - pick an item at random, and place it in position 0
+    - for an item to be at position 0:
+      => 1/n probability
+[2] - pick any of the remaining items, and place it at position 1
+    - for an item to be at position 1:
+      => (n-1)/n * 1/(n-1) = prob. of not making it into pos 0, times prob. of
+      making it into position 1
+      = 1/n
+[3] - for an item to be at position 2:
+      => (n-1)/n * (n - 2)/(n-1) * 1/(n - 2)
+      = 1/n
+...
+[x] - 1/n
+```
+
+- loop over every item in the array
+- for each item, generate a random index for that item, from its current
+    position until the end of the array
+- swap the value at the current loop index position with the value at the
+    randomly selected index position
