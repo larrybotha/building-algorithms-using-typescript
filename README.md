@@ -23,6 +23,7 @@ egghead.io.
 - [Stack](#stack)
 - [Queue](#queue)
 - [Linked List](#linked-list)
+- [Parse string with an integer](#parse-string-with-an-integer)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
@@ -463,3 +464,22 @@ previous value.
 
 Because the next and previous values are constant, we can implement linked lists
 and doubly linked lists with time complexity of `O(1)`.
+
+## Parse string with an integer
+
+[17-parse-a-string-to-an-integer.ts](./src/17-parse-a-string-to-an-integer.ts)
+
+*Summary:* This is a common question in code interviews, and is useful in
+demonstrating an understanding of digits being powers of 10, and that code
+points can be used to determine relations between characters without referring
+to the characters specifically.
+
+Javascript's `parseInt` only parses strings that begin with a digit, otherwise
+it returns `NaN`.
+
+- Code points are the numeric representations of characters
+- Code points can be thought of as id's in a database for every character
+- Each character's code point can be obtained using `String.prototype.charCodeAt`
+- By obtaining the code point for 0, we can determine whether any other
+    character is a numeric digit or not be evaluating the difference of the two
+    code points.
