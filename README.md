@@ -491,7 +491,10 @@ it returns `NaN`.
 
 *Summary:* Shuffling an array requires implementing a function that has the
 property that for every item in the original array (of length n), each item has
-a 1/n probability of being at any position in the shuffled array
+a 1/n probability of being at any position in the shuffled array. Using the
+Fisher-Yates algorithm, we can achieve a time complexity of `O(n)`.
+
+We will implement the Fisher-Yates shuffle:
 
 ```
 a b c d e
@@ -523,7 +526,7 @@ c a d e b
 ```
 
 - loop over every item in the array
-- for each item, generate a random index for that item, from its current
-    position until the end of the array
+- randomly select an index for an item between the current index and the end of
+    the array
 - swap the value at the current loop index position with the value at the
     randomly selected index position

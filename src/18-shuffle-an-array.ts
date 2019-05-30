@@ -6,6 +6,10 @@ import {randomInt} from './12-create-random-items-in-given-range';
  * shuffle an array such that every item in the original array has a 1/n
  * probability of being in any position in the shuffled array
  *
+ * Because we only loop through the array once, we have time complexity of O(n)
+ *
+ * This implementation is called the Fisher-Yates shuffle
+ *
  * @param {T[])} xs - the array to shuffle
  * @returns {T[]}
  */
