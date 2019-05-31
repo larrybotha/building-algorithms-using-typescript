@@ -25,6 +25,9 @@ egghead.io.
 - [Linked List](#linked-list)
 - [Parse string with an integer](#parse-string-with-an-integer)
 - [Shuffle an array](#shuffle-an-array)
+- [Heap data structure implementation](#heap-data-structure-implementation)
+  - [Multiple arrangements](#multiple-arrangements)
+  - [Heaps represented by arrays](#heaps-represented-by-arrays)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
@@ -530,3 +533,121 @@ c a d e b
     the array
 - swap the value at the current loop index position with the value at the
     randomly selected index position
+
+## Heap data structure implementation
+
+[19-heap-data-structure-implementation.ts](./src/19-heap-data-structure-implementation.ts)
+
+It's useful having a mental model of a heap as a binary tree:
+
+```
+        A
+      /   \
+    B      C
+  /   \
+ D     E
+```
+
+The tree would satisfy the heap property if the value of every node is less than
+its children:
+
+```
+A < B
+A < C
+B < D
+B < E
+```
+
+Subsequently, any descendants of a node will satisfy the same property.
+
+This proprety implies that smallest element in the tree has to be the root node.
+This is what defines the heap property.
+
+Because in this instance we are working with a complete binary tree, the maximum
+number of levels in the tree will be `logn`, where `n` is the number of items in
+the tree.
+
+### Multiple arrangements
+
+An array of values can be represented in multiple ways to satisfy the heap
+property:
+
+```
+4,4,5,6,9
+
+        4
+      /   \
+    5      4
+  /   \
+ 6     9
+
+
+        4
+      /   \
+    4      5
+  /   \
+ 9     6
+```
+
+The only value guaranteed for different variations of a heap is the root node;
+i.e. the smallest value.
+
+### Heaps represented by arrays
+
+```
+# given an array of indices
+[] = 0,1,2,3,4,5,6,7,8,9,10,11,12,13
+
+# conceptualised as a tree:
+
+                  0
+                /   \
+              /       \
+            /           \
+          /               \
+         1                 2
+       /   \             /   \
+      /     \           /     \
+     3       4         5       6
+   /  \     /  \     /   \    /
+  7    8   9    10  11   12  13
+```
+
+Given a node at index `n`, how can we generically determine the value of it's
+left child node?
+
+```
+# left values of child node at indexes:
+left(0) = 1
+left(1) = 3
+left(3) = 7
+
+# from this we can see that to get the left child node of the current node, we
+# need to skip (n + 1) spaces to the right
+left(n) -> self + n items to the right + 1
+
+left(n) = n + n + 1 = 2n + 1
+
+left(0) = 2 * 0 + 1 = 1
+left(1) = 2 * 1 + 1 = 3
+left(3) = 2 * 3 + 1 = 7
+
+# the right child node is 1 index further than the left child node
+right(n) = 2n + 2
+
+# so we have
+left(n) = 2n + 1
+right(n) = 2n + 2
+
+# now that we have left and right child nodes, we can traverse the tree in the
+# opposite direction to find parent nodes:
+parentLeft(n) = (n - 1) / 2
+parentRight(n) = (n - 2) / 2
+
+2n + 1 => always odd
+2n + 2 => always even
+
+parent(n) =>
+  n is even => (n - 2) / 2
+       else => (n - 1) / 2
+```
