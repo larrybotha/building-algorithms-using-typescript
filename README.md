@@ -29,6 +29,7 @@ egghead.io.
 - [Heap data structure implementation](#heap-data-structure-implementation)
   - [Multiple arrangements](#multiple-arrangements)
   - [Heaps represented by arrays](#heaps-represented-by-arrays)
+- [Max items and height in a complete binary tree](#max-items-and-height-in-a-complete-binary-tree)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
@@ -651,4 +652,73 @@ parentRight(n) = (n - 2) / 2
 parent(n) =>
   n is even => (n - 2) / 2
        else => (n - 1) / 2
+```
+
+## Max items and height in a complete binary tree
+
+[20-max-items-and-height-complete-binary-tree.ts](./src/20-max-items-and-height-complete-binary-tree.ts)
+
+*Summary:* A complete binary tree is a tree that new levels are only filled once
+all previous levels are filled.
+
+```
+                  O
+                /   \
+              /       \
+            /           \
+          /               \
+         O                 O
+       /   \             /   \
+      /     \           /     \
+     O       O         O       O
+    / \     / \       / \     / \
+   O   O   O   O     O   O   O   O
+```
+
+The number of items at any given level can be determined as a power of 2:
+
+```
+level 0: 2^0 = 1
+level 1: 2^1 = 2
+level 2: 2^2 = 4
+level 3: 2^3 = 8
+...
+level n: 2^n
+
+total nodes = 2^0 + 2^1 + ... + 2^n
+```
+
+We could use a divergent geometric series to find the total number of nodes:
+
+```javascript
+const n = 3;
+let total = 0;
+
+for (let i = 0; i <= n; i++) {
+  total += 2 ** (n);
+}
+
+// => total === 15
+```
+
+This can also be visualised using a table:
+
+```
+| height of tree | level | num items in level | total |
+| 1              | 0     | 1 (+1 lie)         | 2     |
+| 2              | 1     | 2                  | 4     |
+| 3              | 2     | 4                  | 8     |
+| 4              | 3     | 8                  | 16    |
+```
+
+For the 0th node, we add a phantom additional item to the level so that every
+level total can be calculated by multiplying the previous level's total by two.
+
+This gives us the following (accounting for the additional item by subtracting 1
+from the total):
+
+```
+2 * (2 ^ level) - 1
+=> 2 ^ (level + 1) - 1
+=> 2 ^ h - 1
 ```
