@@ -23,6 +23,7 @@ egghead.io.
 - [Stack](#stack)
 - [Queue](#queue)
 - [Linked List](#linked-list)
+- [Doubly-linked list](#doubly-linked-list)
 - [Parse string with an integer](#parse-string-with-an-integer)
 - [Shuffle an array](#shuffle-an-array)
 - [Heap data structure implementation](#heap-data-structure-implementation)
@@ -453,7 +454,7 @@ node is the tail.
 Any operation that only requires a constant number of next value manipulations
 can always be implemented with time complexity O(1)
 
-@@ Doubly-linked list
+## Doubly-linked list
 
 [16-doubly-linked-list-implementation.ts](./src/16-doubly-linked-list-implementation.ts)
 
