@@ -30,6 +30,7 @@ egghead.io.
   - [Multiple arrangements](#multiple-arrangements)
   - [Heaps represented by arrays](#heaps-represented-by-arrays)
 - [Max items and height in a complete binary tree](#max-items-and-height-in-a-complete-binary-tree)
+- [Heapsort algorithm implementation](#heapsort-algorithm-implementation)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
@@ -722,3 +723,25 @@ from the total):
 => 2 ^ (level + 1) - 1
 => 2 ^ h - 1
 ```
+
+## Heapsort algorithm implementation
+
+[21-heapsort-algorithm-implementation.ts](./src/21-heapsort-algorithm-implementation.ts)
+
+*Summary:*
+
+Task: sort the following in ascending order:
+
+```
+9 4 2 7 5 3
+```
+
+Using the compare function of a heap, we know that we can create a heap of
+ascending / descending items.
+
+We need to:
+
+1. create a heap with a compare function that will ensure added items are added
+   in ascending order
+2. add all the numbers to the heap
+3. extract the root of the heap until the heap is empty
