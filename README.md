@@ -728,7 +728,8 @@ from the total):
 
 [21-heapsort-algorithm-implementation.ts](./src/21-heapsort-algorithm-implementation.ts)
 
-*Summary:*
+*Summary:* Sort an array using a heap and a comparison function. The resulting
+time complexity is `O(nlogn)`.
 
 Task: sort the following in ascending order:
 
@@ -745,3 +746,5 @@ We need to:
    in ascending order
 2. add all the numbers to the heap
 3. extract the root of the heap until the heap is empty
+
+Heapsort provides the best performance for sorting using a comparison.
