@@ -93,11 +93,26 @@ class Heap<T> {
     }
   }
 
+  /**
+   * extractRoot
+   *
+   * Extract the root element of the heap
+   *
+   * Because we rely on siftDown to ensure that the remaining items in the tree
+   * are sorted properly once extracting the root, this operation has time
+   * complexity of O(logn)
+   *
+   * @returns {T | undefined}
+   */
   extractRoot(): T | undefined {
     if (this.data.length > 0) {
       const root = this.data[0];
       const last = this.data.pop();
 
+      /*
+       * sort the heap by placing the last element at the beginning of the heap,
+       * and sifting down
+       */
       if (this.data.length > 0) {
         this.data[0] = last;
         this.siftDown(0);
@@ -229,4 +244,4 @@ console.log(heap.extractRoot());
 console.log(heap.extractRoot());
 console.log(heap.extractRoot());
 
-export {Heap};
+export {CompareFn, Heap};
