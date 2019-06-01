@@ -31,6 +31,7 @@ egghead.io.
   - [Heaps represented by arrays](#heaps-represented-by-arrays)
 - [Max items and height in a complete binary tree](#max-items-and-height-in-a-complete-binary-tree)
 - [Heapsort algorithm implementation](#heapsort-algorithm-implementation)
+- [Minimum and maximum maintenance algorithm implementation](#minimum-and-maximum-maintenance-algorithm-implementation)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
@@ -748,3 +749,13 @@ We need to:
 3. extract the root of the heap until the heap is empty
 
 Heapsort provides the best performance for sorting using a comparison.
+
+## Minimum and maximum maintenance algorithm implementation
+
+[22-minimum-and-maximum-maintenance-algorithm-implementation.ts](./src/22-minimum-and-maximum-maintenance-algorithm-implementation.ts)
+
+*Summary:* Given values over time, extract the minimum / maximum number from the
+set. This can be implemented by using a heap, since a heap keeps items in order.
+The resulting time complexity of using a heap to perform this work is `O(nlogn)`
+
+
