@@ -32,6 +32,7 @@ egghead.io.
 - [Max items and height in a complete binary tree](#max-items-and-height-in-a-complete-binary-tree)
 - [Heapsort algorithm implementation](#heapsort-algorithm-implementation)
 - [Minimum and maximum maintenance algorithm implementation](#minimum-and-maximum-maintenance-algorithm-implementation)
+- [Median maintenance algorithm implementaton](#median-maintenance-algorithm-implementaton)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
@@ -758,4 +759,43 @@ Heapsort provides the best performance for sorting using a comparison.
 set. This can be implemented by using a heap, since a heap keeps items in order.
 The resulting time complexity of using a heap to perform this work is `O(nlogn)`
 
+## Median maintenance algorithm implementaton
 
+[23-median-maintenance-algorithm-implementation.ts](./src/23-median-maintenance-algorithm-implementation.ts)
+
+*Summary:*
+
+1. sort the list
+2. if the list is odd in length, the middle value is the median
+3. if the list is even in length, find the average of the two middle values
+
+The median maintenance problem is also called the continuous median problem. The
+median of the list needs to be maintained continuously as new items are added to
+the list:
+
+```
+4
+# => 4
+
+4 6
+# => 5
+
+4 6 3
+# => 4
+
+...
+```
+
+A naive implementation would simply loop over an array, resulting in a time
+complexity of `O(n)`.
+
+We can improve on this by splitting the items internally using twp Heaps. One
+heap will maintain a list of the small values up until halfway, and the other
+Heap will maintain a list of the large values from halfway.
+
+By using two Heaps, we can simply extract the root of the max heap, or pop the
+end of the minimum heap, while always adding items with a time complexity of
+`O(logn)`.
+
+If either heap is larger than the other, then we return respsective value from
+that heap. Otherwise, the root and tail of the respective Heaps can be averaged.
