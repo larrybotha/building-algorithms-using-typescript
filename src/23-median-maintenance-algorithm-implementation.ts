@@ -72,6 +72,12 @@ class MedianMaintenanceArrayNaive {
   }
 }
 
+/**
+ * MedianMaintenanceArray
+ *
+ * Maintain a median in a list using two heaps sorted in opposite directions,
+ * resulting in a time complexity of O(logn);
+ */
 class MedianMaintenanceArray {
   /*
    * maintain a list items ordered from largest to smallest
