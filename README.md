@@ -818,7 +818,7 @@ complexity of `O(n)`.
           => with a sum of 6
 ```
 
-A naive solution could use a nested for loop, tracking every start index with
+A naive solution could use a nested for loop, evlauting every start index with
 every end index:
 
 ```
