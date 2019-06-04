@@ -33,6 +33,8 @@ egghead.io.
 - [Heapsort algorithm implementation](#heapsort-algorithm-implementation)
 - [Minimum and maximum maintenance algorithm implementation](#minimum-and-maximum-maintenance-algorithm-implementation)
 - [Median maintenance algorithm implementaton](#median-maintenance-algorithm-implementaton)
+- [Maximm contiguous sub-array](#maximm-contiguous-sub-array)
+  - [Dynamic programming](#dynamic-programming)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
@@ -799,3 +801,117 @@ end of the minimum heap, while always adding items with a time complexity of
 
 If either heap is larger than the other, then we return respsective value from
 that heap. Otherwise, the root and tail of the respective Heaps can be averaged.
+
+## Maximm contiguous sub-array
+
+[24-maximum-contiguous-sub-array.ts](./src/24-maximum-contiguous-sub-array.ts)
+
+*Summary:* Given an array of numbers, return the sub array that has the largest
+contiguous sum. A naive solution can be implemented with nested loops, resulting
+in a time complexity of `O(n^2)`, but by evaluating the properties of sub-arrays
+and tracking indices, we need only pass over the array once, resulting in a time
+complexity of `O(n)`.
+
+```
+[-2, 1, -3, 4, -1, 2, 1, -5, 4]
+          [4, -1, 2, 1]
+          => with a sum of 6
+```
+
+A naive solution could use a nested for loop, tracking every start index with
+every end index:
+
+```
+for (evert start index) {
+  for (every end index > start index) {
+    evaluateIfMaxSum(start index, end index)
+  }
+}
+```
+
+We can improve on this by making two observations:
+
+*Observation 1*
+
+For the maximum sum for any sub array in the range from `0` to `i` when the element
+at `i` must be included
+
+- `maxSumIncluding(i) = maxSumIncluding(i - 1) + val(i)`
+- We can improve on the above by eliminating the sum before the current value if
+    it's less than 0:
+
+  ```
+    maxSumIncluding(i) = maxSumIncluding(i - 1) < 0
+      ? val(i)
+      : maxSumIncluding(i - 1) + val(i)
+  ```
+
+*Observation 2*
+
+For the max sum from `0` to `i`, regardless of whether `i` is included or not:
+
+```
+maxSum(i) = maxSumIncluding(i) > maxSum(i - 1) ? maxSumIncluding(i) : maxSum(i - 1)
+```
+
+Combining these two observations, we have:
+
+- `maxSumIncluding(i) = maxSumIncluding(i - 1) > 0 ? maxSumIncluding(i - 1) + val(i)` : val(i)``
+- `maxSum(i) = maxSumIncluding(i) > maxSum(i - 1) ? maxSumIncluding(i) : maxSum(i - 1)`
+
+We have the answer for `maxSum(i)` when:
+
+`maxSumIncluding(i - 1) == maxSum(i - 1)`
+
+### Dynamic programming
+
+The answer up until `i` depends only on values earlier in the array.
+
+When a pre-solved solution to a subset of the problem is provided the
+problem-solving approach is dynamic programming.
+
+The optimal answer at `i` depends on optimal answers for `i - k` where `k` is
+some constant. The problem is then said to have an optimal sub-structure.
+
+Dynamic programming problems can be solved with a table:
+
+```
+o1: maxSumIncluding(i) = maxSumIncluding(i - 1) > 0
+      ? maxSumIncluding(i - 1) + val(i)
+      : val(i)
+o2: maxSum(i) = maxSumIncluding(i) > maxSum(i - 1)
+      ? maxSumIncluding(i)
+      : maxSum(i - 1)
+
+[-2, 1, -3, 4, -1, 2, 1, -5, 4]
+
+| Step | Element | maxSumIncluding | maxSum |
+| [1]  | -2      | -2              | -2     |
+| [2]  | 1       | 1               | 1      |
+| [3]  | -3      | -2              | 1      |
+| [4]  | 4       | 4               | 4      |
+| [5]  | -1      | 3               | 4      |
+| [6]  | 2       | 5               | 5      |
+| [7]  | 1       | 6               | 6      |
+| [8]  | -5      | -1              | 6      |
+| [9]  | 4       | 5               | 6      |
+
+[1] - o1: false => -2, o2: true  => -2
+[2] - o1: false => 1,  o2: true  => 1
+[3] - o1: true  => -2, o2: false => 1
+[4] - o1: false => 4,  o2: true  => 4
+[5] - o1: true  => 3,  o2: false => 4
+[6] - o1: true  => 5,  o2: true  => 5
+[7] - o1: true  => 6,  o2: true  => 6
+[8] - o1: true  => 1,  o2: false => 6
+[9] - o1: false => 3,  o2: true  => 6
+```
+
+- The max sum of a contiguous sub-array is the `maxSum` value in the last row, i.e. 6 for this array.
+- The start index of the max sub-array changes whenever `val(i) === maxSum(i)`
+- The end index of the max sub-array changes when `maxSumIncluding(i) === maxSum(i)`
+
+Thus, we can track the `maxStartIndex` and `maxEndIndex`.
+
+Another feature of dynamic programming problems is that one usually favours iteration
+over recursion.
